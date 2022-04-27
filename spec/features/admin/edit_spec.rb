@@ -13,13 +13,13 @@ RSpec.describe 'merchant items edit page' do
                                         unit_price: 10000000)
       end
 
-      xit 'i see a link to update the item information' do
+      it 'i see a link to update the item information' do
         visit "/merchants/#{@merchant_1.id}/items/#{@item_1.id}"
 
         expect(page).to have_link("Update Item Information")
       end
 
-      xit 'when i click the link, i am taken to a page to edit the item' do
+      it 'when i click the link, i am taken to a page to edit the item' do
         visit "/merchants/#{@merchant_1.id}/items/#{@item_1.id}"
 
         click_link "Update Item Information"
@@ -27,7 +27,7 @@ RSpec.describe 'merchant items edit page' do
         expect(current_path).to eq("/merchants/#{@merchant_1.id}/items/#{@item_1.id}/edit")
       end
 
-      xit 'and i see a form filled in with the exiting attribute info' do
+      it 'and i see a form filled in with the exiting attribute info' do
         visit "/merchants/#{@merchant_1.id}/items/#{@item_1.id}"
 
         click_link "Update Item Information"
@@ -37,7 +37,7 @@ RSpec.describe 'merchant items edit page' do
         expect(page).to have_field("Unit price", with: "#{@item_1.unit_price}")
       end
 
-      xit 'when i update the info in the form and click submit, i am redirected
+      it 'when i update the info in the form and click submit, i am redirected
           back to the item show page where i see the updated information and a flash
           message stating that the info has been successfully updated'do
         visit "/merchants/#{@merchant_1.id}/items/#{@item_1.id}"
